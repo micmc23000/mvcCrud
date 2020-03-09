@@ -26,44 +26,44 @@ import org.springframework.web.servlet.ModelAndView;
 public class main {
 
     @Autowired
-    AgentService agentService;
+    BrewerieService service;
 
     @RequestMapping("/displayAll")
-    public ModelAndView diplayAllAgents() {
-        return new ModelAndView("/allBrewerie", "brewerieList", agentService.getAllAgents());
+    public ModelAndView diplayAll() {
+        return new ModelAndView("/allBrewerie", "brewerieList", service.getAllBreweries());
     }
 
     @GetMapping("/add")
     public ModelAndView displayAgentAddForm() {
-        return new ModelAndView("/addAgent", "agent", new Agent());
+        return new ModelAndView("/addBrewerie", "Brewerie", new Breweries());
     }
 
-    @PostMapping("/addAgent")
-    public ModelAndView addAnAgent(@Valid @ModelAttribute("agent") Agent agent, BindingResult result, ModelMap model) {
-        if (result.hasErrors()) {
-            return new ModelAndView("/addAgent");
+    @PostMapping("/addBrewerie")
+    public ModelAndView addAnBrewerie(@Valid @ModelAttribute("Brewerie") Breweries agent, BindingResult result, ModelMap model) {
+        if (!result.hasErrors()) {
+            return new ModelAndView("/addBrewery");
         }
-        agentService.addAnAgent(agent);
+        service.addAnBreweries(agent);
         return new ModelAndView("redirect:/home/displayAll");
     }
 //    
     @RequestMapping("/edit")
     public ModelAndView editAgentForm(@QueryParam("id") int id) {
-        return new ModelAndView("/editAgent", "agent", agentService.getAgentById(id));
+        return new ModelAndView("/editAgent", "agent", service.getBreweriesById(id));
     }
     
     @PostMapping("/editAgent")
-    public ModelAndView editAgent(@Valid @ModelAttribute("agent") Agent agent, BindingResult result, ModelMap model) {
-        if (result.hasErrors()) {
+    public ModelAndView editAgent(@Valid @ModelAttribute("agent") Breweries agent, BindingResult result, ModelMap model) {
+        if (!result.hasErrors()) {
             return new ModelAndView("/editAgent");
         }
-        agentService.editAgent(agent);
+   //     service.editAgent(agent);
         return new ModelAndView("redirect:/home/displayAll");
     }
 
     @GetMapping("/delete")
     public ModelAndView deleteAnAgent(@QueryParam("id") int id) {
-        agentService.deleteAnAgent(id);
+   //     service.deleteAnAgent(id);
         return new ModelAndView("redirect:/home/displayAll");
     }
 

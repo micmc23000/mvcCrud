@@ -17,9 +17,7 @@
         </property>
     </bean>   
     
-    <bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean" >
-        <property name="validationMessageSource" ref="messageSource"/>
-    </bean>
+    
         
     <bean id="messageAccessor" class="org.springframework.context.support.MessageSourceAccessor">
         <constructor-arg index="0" ref="messageSource"/>

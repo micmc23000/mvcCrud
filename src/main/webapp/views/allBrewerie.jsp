@@ -21,14 +21,13 @@
                 <th align="left"><spring:message code="label.country" /></th>
                 <th align="left"><spring:message code="label.phone" /></th>
                 <th align="left"><spring:message code="label.website" /></th>
-                <th align="left"><spring:message code="label.image" /></th>
                 <th align="left"><spring:message code="label.description" /></th>
                 <th align="left"><spring:message code="label.addUser" /></th>
                 <th align="left"><spring:message code="label.last_mod" /></th>
                 <th align="left"><spring:message code="label.credit_limit" /></th>
                 <th align="left"><spring:message code="label.email" /></th>
             </tr>
-            <c:forEach items="${breweriesList}" var="brewerie"> 
+            <c:forEach items="${brewerieList}" var="brewerie"> 
                 <tr>
                     <td>${brewerie.id}</td>
                     <td>${brewerie.address1}</td>
@@ -39,7 +38,7 @@
                     <td>${brewerie.country}</td>
                     <td>${brewerie.phone}</td>
                     <td>${brewerie.website}</td>
-                     <td>${brewerie.state}</td>
+                    <td>${brewerie.state}</td>
                     <td>${brewerie.description}</td>
                     <td>${brewerie.addUser}</td>
                     <td>${brewerie.lastMod}</td>

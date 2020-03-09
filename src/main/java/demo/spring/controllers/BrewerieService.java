@@ -50,7 +50,7 @@ public class BrewerieService {
 
     public Breweries getBreweriesById(int id) {
         EntityManager em = DBUtil.getEmf().createEntityManager();
-        TypedQuery<Breweries> tq = em.createNamedQuery("Breweries.findByBreweriesId", Breweries.class).setParameter("agentId", id);
+        TypedQuery<Breweries> tq = em.createNamedQuery("Breweries.findById", Breweries.class).setParameter("brewerieId", id);
 
         Breweries a = null;
         try {

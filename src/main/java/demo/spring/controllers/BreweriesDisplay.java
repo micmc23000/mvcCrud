@@ -15,13 +15,14 @@ import org.springframework.web.servlet.ModelAndView;
  *
  * @author michael
  */
-
 @Controller
 @RequestMapping("/Breweries")
 public class BreweriesDisplay {
+
     @GetMapping("/All")
-    public ModelAndView getAll()
-    {
-        List<Breweries> list = BrewerieService.
+    public ModelAndView getAll() {
+        List<Breweries> list = BrewerieService.getAllBreweries();
+        return new ModelAndView("/allBrewerie", "brewerieList", list);
+
     }
 }
