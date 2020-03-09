@@ -22,6 +22,7 @@ public class BreweriesDisplay {
     @GetMapping("/All")
     public ModelAndView getAll()
     {
-        List<Breweries> list = BrewerieService.
+        List<Breweries> list = BrewerieService.getAllBreweries();
+        return new ModelAndView("allBrewerie", "breweriesList", list);
     }
 }
