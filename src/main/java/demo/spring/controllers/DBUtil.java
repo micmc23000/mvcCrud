@@ -13,7 +13,7 @@ import javax.persistence.Persistence;
  * @author danie
  */
 public class DBUtil {
-    private static final EntityManagerFactory emf = Persistence.createEntityManagerFactory("litrealty");
+    private static final EntityManagerFactory emf = Persistence.createEntityManagerFactory("taste");
     public static EntityManagerFactory getEmf(){
         return emf;
     }
